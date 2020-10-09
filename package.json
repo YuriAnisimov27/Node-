@@ -1,10 +1,10 @@
 {
   "name": "node-",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "draft.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node app",
+    "server": "nodemon app"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +19,13 @@
   "homepage": "https://github.com/YuriAnisimov27/Node-#readme",
   "description": "",
   "dependencies": {
+    "config": "^3.3.2",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mongoose": "^5.10.8"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   }
 }
