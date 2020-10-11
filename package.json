@@ -4,7 +4,9 @@
   "main": "draft.js",
   "scripts": {
     "start": "node app",
-    "server": "nodemon app"
+    "server": "nodemon app",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
