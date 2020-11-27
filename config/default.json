@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://MERN-User:pass1234@devconnector.cfikg.mongodb.net/DevConnector?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
-}
