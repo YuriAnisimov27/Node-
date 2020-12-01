@@ -1,4 +1,6 @@
 {
   "serverPort": 5000,
-  "dbUrl": "mongodb+srv://MERN-User:pass1234@cloud.d2nvj.mongodb.net/cloud?retryWrites=true&w=majority"
+  "dbUrl": "mongodb+srv://MERN-User:pass1234@cloud.d2nvj.mongodb.net/cloud?retryWrites=true&w=majority",
+  "secretKey": "some-key",
+  "filePath": "/Users/urij/WebstormProjects/Node-/server/files"
 }
