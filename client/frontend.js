@@ -7,12 +7,19 @@ new Vue({
       form: {
         name: '',
         value: ''
-      }
-    }
+      },
+      contacts: []
+    };
   },
   methods: {
     createContact() {
-      console.log(this.form)
+      const {...contact} = this.form;
+      console.log(contact);
+      this.contacts.push({...contact, id: Date.now()});
+      console.log('contacts', this.contacts);
+
+      this.form.name = '';
+      this.form.value = '';
     }
   }
-})
+});
