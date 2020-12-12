@@ -8,10 +8,15 @@
     <title>REST-API</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container pt-3" id="app">
+    <div class="container pt-3" id="app" v-cloak>
         <h1>REST API</h1>
 
         <form class="form-inline" @submit.prevent="createContact">
@@ -23,17 +28,17 @@
                 <label for="value" class="sr-only">Password</label>
                 <input type="text" class="form-control" id="value" placeholder="value" v-model="form.value">
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+            <button type="submit" class="btn btn-primary mb-2" :disabled="!canCreate">Confirm identity</button>
         </form>
 
         <div class="cards" v-if="contacts.length">
             <div class="card" style="width: 18rem;" v-for="contact in contacts">
                 <img class="card-img-top" src="https://picsum.photos/200/200" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{contact.name}}</h5>
+                    <h5 class="card-title" :style="{color: contact.marked ? 'red' : 'black'}">{{contact.name}}</h5>
                     <p class="card-text">{{contact.value}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="#" class="btn btn-primary" @click="markContact(contact.id)" :disabled="contact.marked">Mark</a>
+                    <a href="#" class="btn btn-danger" @click="removeContact(contact.id)">Delete</a>
                 </div>
             </div>
         </div>
