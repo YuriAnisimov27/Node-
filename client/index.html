@@ -33,7 +33,7 @@
 
         <div class="cards" v-if="contacts.length">
             <div class="card" style="width: 18rem;" v-for="contact in contacts">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Card image cap">
+                <img class="card-img-top" src="https://picsum.photos/200/100" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" :style="{color: contact.marked ? 'red' : 'black'}">{{contact.name}}</h5>
                     <p class="card-text">{{contact.value}}</p>
