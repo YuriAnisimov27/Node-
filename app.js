@@ -7,6 +7,10 @@ const CONTACTS = [
   {id: 1, name: 'John', value: '975-99-92', marked: false}
 ]
 
+app.get('/api/contacts', (req, res) => {
+  res.status(200).json(CONTACTS)
+})
+
 app.use(express.static(path.resolve(__dirname, 'client')))
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'index.html'))
