@@ -37,12 +37,17 @@ new Vue({
       this.form.name = '';
       this.form.value = '';
     },
-    markContact(id) {
+    async markContact(id) {
       const contact = this.contacts.find(c => c.id === id);
-      contact.marked = true;
+      const updated = await request(`/api/contacts/${id}`, 'PUT', {
+        ...contact,
+        marked: true
+      });
+
+      contact.marked = updated.marked;
     },
     async removeContact(id) {
-      await request(`/api/contacts/${id}`, 'DELETE')
+      await request(`/api/contacts/${id}`, 'DELETE');
       this.contacts = this.contacts.filter(c => c.id !== id);
     }
   },
